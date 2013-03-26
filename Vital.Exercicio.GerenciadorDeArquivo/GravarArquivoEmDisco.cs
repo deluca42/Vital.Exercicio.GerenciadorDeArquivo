@@ -12,14 +12,14 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
     /// <summary>
     ///  gerenciador de arquivo 
     /// </summary>
-    public class GerenciadorDeArquivoMain
+    public class GravarArquivoEmDisco
     {
         /// <summary>
         /// Carrega um arquivo em memoria de acordo com o path informado
         /// </summary>
         /// <param name="path">caminho do arquivo</param>
         /// <returns>memorystream</returns>
-        public MemoryStream CarregarArquivoEmMemoria(String path)
+        public MemoryStream CarregarArquivo(String path)
         {
             #region Pré-Condições
 
@@ -52,7 +52,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
         /// Escreve o conteudo da memoria num arquivo em um local
         /// </summary>
         /// <param name="memoryStream">conteudo binario</param>
-        public EscreverStreamEmArquivo(MemoryStream memoryStream)
+        public GravarArquivoEmDisco(MemoryStream memoryStream)
         {
             #region Pré-Condições
 
@@ -62,11 +62,14 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
             #endregion
 
             oArquivoRecebido.and(pathArquivosSalvos).Validate();
+       
 
-            return 
+            using (FileStream file = new FileStream("file.bin", FileMode.Create, FileAccess.Write)) {
+             memoryStream.WriteTo(file);
 
         }
 
+        }
 
     }
 }
