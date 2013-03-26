@@ -18,7 +18,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
         /// escrever arquivo 
         /// </summary>
         /// <param name="meuArquivo"> arquivo </param>
-        public void EscreverArquivo(Object meuArquivo)
+        public void EscreverStreamEmArquivo(Object meuArquivo)
         {
             #region Pré-Condições
 
@@ -30,12 +30,20 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
         }
 
         /// <summary>
-        /// Le um path local do servidor e retorn um memorystream com o conteudo
+        /// Carrega um arquivo em memoria de acordo com o path informado
         /// </summary>
-        /// <param name="path">c:/~local</param>
-        /// <returns></returns>
-        public MemoryStream CarregarPathEmStream(String path)
+        /// <param name="path">caminho do arquivo</param>
+        /// <returns>memorystream</returns>
+        public MemoryStream CarregarArquivoEmMemoria(String path)
         {
+            #region Pré-Condições
+
+            IAssertion pathFoiEncontrado = Assertion.Equals(path,"", "O Path informado para leitura do Arquivo Esta Vazio");
+
+            #endregion
+
+            pathFoiEncontrado.Validate();
+
             MemoryStream memoryStream = null;
             using (var fileStream = File.OpenRead(path))
             {
@@ -43,6 +51,14 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
                 memoryStream.SetLength(fileStream.Length);
                 fileStream.Read(memoryStream.GetBuffer(), 0, (int)fileStream.Length);
             }
+            #region Pós-Condições
+
+            IAssertion arquivoFoiCarregado = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo ");
+
+            #endregion
+
+            arquivoFoiCarregado.Validate();
+
             return memoryStream;
         }
     }
