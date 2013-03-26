@@ -28,6 +28,12 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
             #endregion
 
         }
+
+        /// <summary>
+        /// Le um path local do servidor e retorn um memorystream com o conteudo
+        /// </summary>
+        /// <param name="path">c:/~local</param>
+        /// <returns></returns>
         public MemoryStream CarregarPathEmStream(String path)
         {
             MemoryStream memoryStream = null;
@@ -36,10 +42,8 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
                 memoryStream = new MemoryStream();
                 memoryStream.SetLength(fileStream.Length);
                 fileStream.Read(memoryStream.GetBuffer(), 0, (int)fileStream.Length);
-          
             }
             return memoryStream;
         }
-
     }
 }
