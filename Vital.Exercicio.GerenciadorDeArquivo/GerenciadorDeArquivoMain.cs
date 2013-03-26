@@ -26,6 +26,11 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
 
         }
 
+        public void LerArquivo()
+        {
+            
+        }
+
 
     }
 }

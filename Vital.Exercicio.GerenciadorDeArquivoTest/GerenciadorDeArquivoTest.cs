@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
         [Test]
         public void teste_escrever_Arquivo()
         {
+            String testFilePath = @"C:\Users\Thyago\Desktop\arquivo.jpg";
             Assert.That(_gerenciadorDeArquivo.EscreverArquivo());
         }
 
