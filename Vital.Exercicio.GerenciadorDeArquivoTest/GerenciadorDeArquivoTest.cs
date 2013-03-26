@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using Vital.Exercicio.GerenciadorDeArquivo;
 
 namespace Vital.Exercicio.GerenciadorDeArquivoTest
 {
@@ -11,9 +12,12 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
     public class GerenciadorDeArquivoTest
     {
         [Test]
-        public void teste_de_insacia()
+        public void teste_de_instancia()
         {
-            
+
+
+            GerenciadorDeArquivoMain meuGerenciador = new GerenciadorDeArquivoMain();
+
         }
     }
 }
