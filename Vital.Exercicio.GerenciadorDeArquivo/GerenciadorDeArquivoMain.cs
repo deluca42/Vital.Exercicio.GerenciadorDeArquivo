@@ -8,29 +8,25 @@ using Vital.InfraStructure.DSL.DesignByContract;
 
 namespace Vital.Exercicio.GerenciadorDeArquivo
 {
+    /// <summary>
+    ///  gerenciador de arquivo 
+    /// </summary>
     public class GerenciadorDeArquivoMain
     {
+        /// <summary>
+        /// escrever arquivo 
+        /// </summary>
+        /// <param name="meuArquivo"> arquivo </param>
         public void EscreverArquivo(Object meuArquivo)
         {
             #region Pré-Condições
 
             IAssertion oArquivoFoiInformado = Assertion.NotNull(meuArquivo, "O Arquivo não foi informado");
-            IAssertion oPathdoDoArquivo = Assertion.NotNull(meuArquivo.getPath, "O Path do Esta Arquivo Nulo");
 
-            oArquivoFoiInformado.and(oPathdoDoArquivo).Validate();
 
             #endregion
 
-           
-
-
         }
-
-        public void LerArquivo()
-        {
-            
-        }
-
 
     }
 }
