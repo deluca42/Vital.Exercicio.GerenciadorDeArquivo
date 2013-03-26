@@ -9,5 +9,6 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
     public class GerenciadorDeArquivoMain
     {
 
+
     }
 }
