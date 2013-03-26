@@ -15,10 +15,14 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
             #region Pré-Condições
 
             IAssertion oArquivoFoiInformado = Assertion.NotNull(meuArquivo, "O Arquivo não foi informado");
+            IAssertion oPathdoDoArquivo = Assertion.NotNull(meuArquivo.getPath, "O Path do Esta Arquivo Nulo");
+
+            oArquivoFoiInformado.and(oPathdoDoArquivo).Validate();
 
             #endregion
 
-            oArquivoFoiInformado.Validate();
+           
+
 
         }
 

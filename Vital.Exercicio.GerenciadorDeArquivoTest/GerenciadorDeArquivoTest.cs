@@ -12,18 +12,24 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
     public class GerenciadorDeArquivoTest
     {
         private GerenciadorDeArquivoMain _gerenciadorDeArquivo;
+
+        [TestFixtureSetUp]
+        public void carregar_setup()
+        {
+            _gerenciadorDeArquivo = new GerenciadorDeArquivoMain();
+
+        }
+
         [Test]
         public void teste_de_instancia()
         {
-            var _gerenciadorDeArquivo = new GerenciadorDeArquivoMain();
-
             Assert.IsNotNull(_gerenciadorDeArquivo, "instancia do objeto nula");
         }
+
         [Test]
-        public void teste_escreverArquivo()
+        public void teste_escrever_Arquivo()
         {
-            _gerenciadorDeArquivo = new GerenciadorDeArquivoMain();
-            Assert.That(GerenciadorDeArquivoMain.EscreverArquivo());
+            Assert.That(_gerenciadorDeArquivo.EscreverArquivo());
         }
 
     }
