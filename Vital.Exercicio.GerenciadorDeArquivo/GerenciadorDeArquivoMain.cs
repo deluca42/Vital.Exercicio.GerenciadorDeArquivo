@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vital.Exercicio.GerenciadorDeArquivo
 {
-    public class GerenciadorDeArquivo
+    public class GerenciadorDeArquivoMain
     {
 
     }
