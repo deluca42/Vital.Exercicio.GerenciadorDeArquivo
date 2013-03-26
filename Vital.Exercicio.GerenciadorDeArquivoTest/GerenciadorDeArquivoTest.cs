@@ -30,8 +30,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
         [Test]
         public void teste_ler_Arquivo()
         {
-            string testFilePath = @"C:\Users\Thyago\Documents\Visual Studio 2012\Projects\Vital.Exercicio.GerenciadorDeArquivo\Vital.Exercicio.GerenciadorDeArquivoTest\arquivo.jpg";
-            _gerenciadorDeArquivo.LerArquivo(testFilePath);
+            _gerenciadorDeArquivo.LerArquivo(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]);
         }
 
     }
