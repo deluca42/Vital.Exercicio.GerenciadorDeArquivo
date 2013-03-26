@@ -27,13 +27,11 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
             Assert.IsNotNull(_gerenciadorDeArquivo, "instancia do objeto nula");
         }
 
-        [Ignore]
         [Test]
         public void teste_ler_Arquivo()
         {
-
-            String t = System.Reflection.Assembly.GetEntryAssembly().Location;
-            String testFilePath = @"C:\Users\Thyago\Documents\Visual Studio 2012\Projects\Vital.Exercicio.GerenciadorDeArquivo\Vital.Exercicio.GerenciadorDeArquivoTest\arquivo.jpg";
+            string testFilePath = @"C:\Users\Thyago\Documents\Visual Studio 2012\Projects\Vital.Exercicio.GerenciadorDeArquivo\Vital.Exercicio.GerenciadorDeArquivoTest\arquivo.jpg";
+            _gerenciadorDeArquivo.LerArquivo(testFilePath);
         }
 
     }

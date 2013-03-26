@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,15 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
 
             #endregion
 
+        }
+        public void LerArquivo(String path)
+        {
+            using (var fileStream = File.OpenRead(path))
+            {
+                var memStream = new MemoryStream();
+                memStream.SetLength(fileStream.Length);
+                fileStream.Read(memStream.GetBuffer(), 0, (int)fileStream.Length);
+            }
         }
 
     }
