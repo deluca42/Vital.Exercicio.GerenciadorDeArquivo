@@ -23,7 +23,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
         {
             #region Pré-Condições
 
-            IAssertion pathFoiEncontrado = Assertion.Equals(path,"", "O Path informado para leitura do Arquivo Esta Vazio");
+            IAssertion pathFoiEncontrado = Assertion.Equals(path, "", "O Path informado para leitura do Arquivo Esta Vazio");
 
             #endregion
 
@@ -62,12 +62,12 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
             #endregion
 
             oArquivoRecebido.and(pathArquivosSalvos).Validate();
-       
 
-            using (FileStream file = new FileStream("file.bin", FileMode.Create, FileAccess.Write)) {
-             memoryStream.WriteTo(file);
 
-        }
+            using (FileStream file = new FileStream("file.jpg", FileMode.Create, FileAccess.Write))
+            {
+                memoryStream.WriteTo(file);
+            }
 
         }
 
