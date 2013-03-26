@@ -30,7 +30,9 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
         [Test]
         public void teste_ler_Arquivo()
         {
-            _gerenciadorDeArquivo.LerArquivo(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]);
+            _gerenciadorDeArquivo.CarregarPathEmStream(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]);
+
+            //Assert.IsNotNull();
         }
 
     }

@@ -28,14 +28,17 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
             #endregion
 
         }
-        public void LerArquivo(String path)
+        public MemoryStream CarregarPathEmStream(String path)
         {
+            MemoryStream memoryStream = null;
             using (var fileStream = File.OpenRead(path))
             {
-                var memStream = new MemoryStream();
-                memStream.SetLength(fileStream.Length);
-                fileStream.Read(memStream.GetBuffer(), 0, (int)fileStream.Length);
+                memoryStream = new MemoryStream();
+                memoryStream.SetLength(fileStream.Length);
+                fileStream.Read(memoryStream.GetBuffer(), 0, (int)fileStream.Length);
+          
             }
+            return memoryStream;
         }
 
     }
