@@ -15,21 +15,6 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
     public class GerenciadorDeArquivoMain
     {
         /// <summary>
-        /// escrever arquivo 
-        /// </summary>
-        /// <param name="meuArquivo"> arquivo </param>
-        public void EscreverStreamEmArquivo(Object meuArquivo)
-        {
-            #region Pré-Condições
-
-            IAssertion oArquivoFoiInformado = Assertion.NotNull(meuArquivo, "O Arquivo não foi informado");
-
-
-            #endregion
-
-        }
-
-        /// <summary>
         /// Carrega um arquivo em memoria de acordo com o path informado
         /// </summary>
         /// <param name="path">caminho do arquivo</param>
@@ -51,9 +36,10 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
                 memoryStream.SetLength(fileStream.Length);
                 fileStream.Read(memoryStream.GetBuffer(), 0, (int)fileStream.Length);
             }
+
             #region Pós-Condições
 
-            IAssertion arquivoFoiCarregado = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo ");
+            IAssertion arquivoFoiCarregado = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo Retornado Esta Vazio (0 bytes)");
 
             #endregion
 
@@ -61,5 +47,26 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
 
             return memoryStream;
         }
+
+        /// <summary>
+        /// Escreve o conteudo da memoria num arquivo em um local
+        /// </summary>
+        /// <param name="memoryStream">conteudo binario</param>
+        public EscreverStreamEmArquivo(MemoryStream memoryStream)
+        {
+            #region Pré-Condições
+
+            IAssertion oArquivoRecebido = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo Recebido Esta Vazio (0 bytes)");
+            IAssertion pathArquivosSalvos = Assertion.Equals(System.Configuration.ConfigurationSettings.AppSettings["rootArquivosSalvos"], "", "O Path do Diretorio informado para leitura está vazio");
+
+            #endregion
+
+            oArquivoRecebido.and(pathArquivosSalvos).Validate();
+
+            return 
+
+        }
+
+
     }
 }

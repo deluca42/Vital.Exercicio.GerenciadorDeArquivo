@@ -30,8 +30,19 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
         [Test]
         public void teste_CarregarPathEmStream()
         {
-            Assert.IsNotNull(_gerenciadorDeArquivo.CarregarPathEmStream(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]));
+            Assert.IsNotNull(_gerenciadorDeArquivo.CarregarArquivoEmMemoria(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]));
         }
+
+        [Test]
+        public void teste_EscreverStreamEmArquivo()
+        {
+            MemoryStream memoryStream = _gerenciadorDeArquivo.CarregarArquivoEmMemoria(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]);
+         
+                Assert.Pass(_gerenciadorDeArquivo.EscreverStreamEmArquivo(memoryStream), " Falha em escrever arquivo ");
+      
+        }
+
+
 
     }
 }
