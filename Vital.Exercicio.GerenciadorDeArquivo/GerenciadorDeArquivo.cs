@@ -14,23 +14,39 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
     /// </summary>
     public class GravarArquivoEmDisco
     {
+        private FileWrapper _fileWrapper;
+
+        /// <summary>
+        /// Wrapper de file do .net framework
+        /// </summary>
+        public FileWrapper FileWrapper
+        {
+            get
+            {
+                if(_fileWrapper == null)
+                    _fileWrapper = new FileWrapper();
+                return _fileWrapper;
+            }
+            set { _fileWrapper = value; }
+        }
+
         /// <summary>
         /// Carrega um arquivo em memoria de acordo com o path informado
         /// </summary>
-        /// <param name="path">caminho do arquivo</param>
+        /// <param name="caminho">caminho do arquivo</param>
         /// <returns>memorystream</returns>
-        public MemoryStream CarregarArquivo(String path)
+        public virtual MemoryStream CarregarArquivo(string caminho)
         {
             #region Pré-Condições
 
-            IAssertion pathFoiEncontrado = Assertion.Equals(path, "", "O Path informado para leitura do Arquivo Esta Vazio");
+            IAssertion caminhoDoArquivoFoiEncontrado = Assertion.IsFalse(string.IsNullOrWhiteSpace(caminho), "O caminho do arquivo vazio");
 
             #endregion
 
-            pathFoiEncontrado.Validate();
+            caminhoDoArquivoFoiEncontrado.Validate();
 
             MemoryStream memoryStream = null;
-            using (var fileStream = File.OpenRead(path))
+            using (var fileStream = FileWrapper.OpenRead(caminho))
             {
                 memoryStream = new MemoryStream();
                 memoryStream.SetLength(fileStream.Length);
@@ -39,7 +55,7 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
 
             #region Pós-Condições
 
-            IAssertion arquivoFoiCarregado = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo Retornado Esta Vazio (0 bytes)");
+            IAssertion arquivoFoiCarregado = Assertion.GreaterThan(memoryStream.Length, default(long), "O Arquivo Retornado Esta Vazio (0 bytes)");
 
             #endregion
 
@@ -56,8 +72,8 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
         {
             #region Pré-Condições
 
-            IAssertion oArquivoRecebido = Assertion.GreaterThan(memoryStream.Length, 0, "O Arquivo Recebido Esta Vazio (0 bytes)");
-            IAssertion pathArquivosSalvos = Assertion.Equals(System.Configuration.ConfigurationSettings.AppSettings["RaizArquivosSalvos"], "", "O Path do Diretorio informado para leitura está vazio");
+            IAssertion oArquivoRecebido = Assertion.GreaterThan(memoryStream.Length, default(long), "O Arquivo Recebido Esta Vazio (0 bytes)");
+            IAssertion pathArquivosSalvos =  Assertion.IsFalse(string.IsNullOrWhiteSpace(System.Configuration.ConfigurationSettings.AppSettings["PathArquivoTeste"]), "O Path informado para leitura do Arquivo Esta Vazio");
 
             #endregion
 
@@ -69,6 +85,11 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
                 memoryStream.WriteTo(file);
             }
 
+            #region Pós-Condições
+            
+           
+
+            #endregion
         }
 
     }

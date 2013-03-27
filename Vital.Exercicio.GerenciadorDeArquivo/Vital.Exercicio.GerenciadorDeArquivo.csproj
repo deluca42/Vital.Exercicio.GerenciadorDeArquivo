@@ -160,7 +160,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GerenciadorDeArquivoMain.cs" />
+    <Compile Include="FileWrapper.cs" />
+    <Compile Include="GerenciadorDeArquivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
