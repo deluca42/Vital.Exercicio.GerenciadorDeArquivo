@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Vital.Exercicio.GravarArquivoEmDisco")]
+[assembly: AssemblyTitle("Vital.Exercicio.GravarArquivo")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Vital.Exercicio.GravarArquivoEmDisco")]
+[assembly: AssemblyProduct("Vital.Exercicio.GravarArquivo")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
