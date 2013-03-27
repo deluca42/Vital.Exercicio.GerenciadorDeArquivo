@@ -85,9 +85,9 @@ namespace Vital.Exercicio.GerenciadorDeArquivoTest
             
             Assert.That(() => _gravarArquivoEmDisco.GravarArquivo(memoryStream),
                        Throws.Exception.TypeOf<Exception>()
-                             .With.Property("Message").EqualTo("O Arquivo Retornado Esta Vazio (0 bytes)"));
+                             .With.Property("Message").EqualTo("O Arquivo Recebido Esta Vazio (0 bytes)"));
         }
-
+ 
         [Test]
         public void teste_de_instancia()
         {
