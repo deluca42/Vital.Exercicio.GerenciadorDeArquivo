@@ -79,7 +79,6 @@ namespace Vital.Exercicio.GerenciadorDeArquivo
 
             oArquivoRecebido.and(pathArquivosSalvos).Validate();
 
-
             using (FileStream file = new FileStream("file.jpg", FileMode.Create, FileAccess.Write))
             {
                 memoryStream.WriteTo(file);
